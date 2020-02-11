@@ -1,6 +1,6 @@
 # docker-wordpress-nginx
 
-A Dockerfile that installs the latest wordpress, nginx, mysql, php-apc and php-fpm.
+A Dockerfile that installs the latest wordpress, nginx, mysql, php-apc and php-fpm with https support!
 
 NB: A big thanks to [eugeneware] and [jbfink](https://github.com/jbfink/docker-wordpress) who did most of the hard work on the wordpress parts!
 
