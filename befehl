@@ -1,0 +1,2 @@
+ sed "s/define( 'WP_DEBUG', false );/define( 'WP_DEBUG', false );if ($_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') $_SERVER['HTTPS']='on';/g" wp-config.php
+

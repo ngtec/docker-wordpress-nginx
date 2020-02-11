@@ -25,6 +25,7 @@ if [ ! -f /usr/share/nginx/www/wp-config.php ]; then
   /'LOGGED_IN_SALT'/s/put your unique phrase here/`pwgen -c -n -1 65`/
   /'NONCE_SALT'/s/put your unique phrase here/`pwgen -c -n -1 65`/" /usr/share/nginx/www/wp-config-sample.php > /usr/share/nginx/www/wp-config.php
 
+  sed -i -e "s/define( 'WP_DEBUG', false );/define( 'WP_DEBUG', false );\$_SERVER['HTTPS']='on';/g" /usr/share/nginx/www/wp-config.php
   # Download nginx helper plugin
   curl -O `curl -i -s https://wordpress.org/plugins/nginx-helper/ | egrep -o "https://downloads.wordpress.org/plugin/[^']+"`
   unzip -o nginx-helper.*.zip -d /usr/share/nginx/www/wp-content/plugins
@@ -54,3 +55,4 @@ fi
 
 # start all the services
 /usr/local/bin/supervisord -n
+#service php7.2-fpm start
